@@ -88,6 +88,7 @@ const ConfirmDialogModal = () => {
                 }}
             >
                 <Button
+                    name='Cancel Button'
                     variant="text"
                     color="error"
                     onClick={handleCloseModal}
@@ -96,6 +97,7 @@ const ConfirmDialogModal = () => {
                     Cancel
                 </Button>
                 <Button
+                    name='Confirm Button'
                     sx={{ fontSize: "0.9rem", py: 0.5, px: 1.5 }}
                     onClick={() => updateFriendList(personData)}
                     autoFocus

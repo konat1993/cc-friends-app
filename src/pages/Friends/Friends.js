@@ -38,7 +38,6 @@ const Friends = () => {
                     Explore your relationships
                 </Typography>
                 <SearchInput>
-                    {/*  Children of SearchInput component*/}
                     <Box component="form" onSubmit={handleSubmit}>
                         <Input
                             inputRef={searchInputRef}
@@ -48,6 +47,7 @@ const Friends = () => {
                             sx={searchInputSx.input}
                         />
                         <Button
+                            name="Search Button"
                             color="deepOcean"
                             variant="contained"
                             type="submit"

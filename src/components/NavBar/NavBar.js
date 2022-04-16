@@ -22,7 +22,7 @@ const paths = [
 const NavBar = () => {
   const location = useLocation();
   return (
-    <AppBar position="sticky" sx={navBarSx.appBar}>
+    <AppBar position="sticky" sx={navBarSx.appBar} alt="Avatar of the logged in user">
       <Toolbar>
         <Typography
           variant="h6"
@@ -46,6 +46,7 @@ const NavBar = () => {
             return (
               <Button
                 key={path.pathText}
+                name={`${path.pathText} route`}
                 component={RouterLink}
                 to={path.url}
                 color="secondary"

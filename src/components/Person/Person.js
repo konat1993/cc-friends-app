@@ -36,18 +36,24 @@ const Person = ({ filteredData }) => {
             }}
             sx={personSx.container}
         >
-            <Avatar src={photoUrl} sx={personSx.avatar} />
+            <Avatar src={photoUrl} sx={personSx.avatar} alt={`Avatar of ${firstName} ${lastName}`} />
             <Stack alignItems="center" sx={{ mt: "60px" }}>
                 <Typography variant="h4" sx={personSx.nameText}>
                     {`${firstName} ${lastName}`}
                 </Typography>
                 {renderStatus(status) ? (
                     <>
-                        <Button variant="paper" disableRipple sx={personSx.statusPending}>
+                        <Button
+                            name="Pending invitation - disabled button"
+                            variant="paper"
+                            disableRipple
+                            sx={personSx.statusPending}
+                        >
                             Pending Invitation
                         </Button>
                         <Stack direction="row" gap={1}>
                             <Button
+                                name="Reject invitation"
                                 onClick={() => handleClick({ id: id })}
                                 variant="outlined"
                                 color="pinky"
@@ -56,6 +62,7 @@ const Person = ({ filteredData }) => {
                                 Reject
                             </Button>
                             <Button
+                                name="Accept invitation"
                                 onClick={() => handleClick({ id: id, isAccepted: "accept" })}
                                 variant="contained"
                                 color="pinky"
@@ -69,6 +76,7 @@ const Person = ({ filteredData }) => {
                     <>
                         <Stack direction="column" alignItems="center">
                             <Button
+                                name="Accepted invitation - disabled button"
                                 variant="contained"
                                 color="ocean"
                                 disableRipple
@@ -77,6 +85,7 @@ const Person = ({ filteredData }) => {
                                 Accepted
                             </Button>
                             <Button
+                                name="Remove invitation"
                                 onClick={() => handleClick({ id: id })}
                                 variant="outlined"
                                 color="pinky"
