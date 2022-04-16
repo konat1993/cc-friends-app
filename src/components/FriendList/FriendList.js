@@ -20,6 +20,7 @@ const FriendList = ({ searchData }) => {
             fetchData()
         }
         //only once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     React.useEffect(() => {
         const filteredPeople = rootData?.filter(
