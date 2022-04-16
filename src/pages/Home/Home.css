@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.content {
+    width: 100%;
+    padding: 20px 40px;
+    margin: 0 20px;
+    max-width: 1200px;
+    box-sizing: content-box;
+    border-radius: 8px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.171);
+    color: rgb(61, 61, 61);
+}
+
+.title {
+    font-weight: 800;
+    font-size: 60px;
+}
+
+.content p,
+.content li {
+    font-size: 18px;
+}
