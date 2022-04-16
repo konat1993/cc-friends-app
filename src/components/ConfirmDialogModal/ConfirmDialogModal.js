@@ -38,7 +38,11 @@ const ConfirmDialogModal = () => {
             <DialogTitle
                 textAlign="center"
                 id="alert-dialog-title"
-                sx={{ fontSize: "1.4rem", color: "#485460" }}
+                sx={{
+                    fontSize: "1.4rem",
+                    color: "#485460",
+                    display: personData.isAccepted ? "none" : "block"
+                }}
             >
                 Rootsly
             </DialogTitle>
