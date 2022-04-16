@@ -31,7 +31,7 @@ const Person = ({ filteredData }) => {
             exit={{ opacity: 0 }}
             transition={{
                 opacity: {
-                    duration: 0.2
+                    duration: 0.3
                 }
             }}
             sx={personSx.container}

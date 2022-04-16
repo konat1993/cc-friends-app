@@ -20,7 +20,7 @@ const FriendList = ({ searchData }) => {
             fetchData()
         }
         //only once
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     React.useEffect(() => {
         const filteredPeople = rootData?.filter(
@@ -53,12 +53,12 @@ const FriendList = ({ searchData }) => {
                                 </Grid>
                             )
                         })
-                    ) : (
+                    ) : rootData ? (
                         <Box
                             width={1}
                             component={motion.div}
                             initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
+                            whileInView={{ opacity: 1, }}
                             exit={{ opacity: 0 }}
                         >
                             <Typography variant="h6" textAlign="center">
@@ -68,7 +68,7 @@ const FriendList = ({ searchData }) => {
                                 </span>
                             </Typography>
                         </Box>
-                    )}
+                    ) : null}
                 </AnimatePresence>
             </Grid>
         </Container>
