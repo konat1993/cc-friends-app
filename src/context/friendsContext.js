@@ -1,20 +1,30 @@
-import React from "react";
-import { getList } from "../services/friendsService";
+import React from "react"
+import { getList } from "../services/friendsService"
 
-export const FriendsContext = React.createContext();
+export const FriendsContext = React.createContext()
 
 const FriendsContextProvider = ({ children }) => {
-  const [rootData, setRootData] = React.useState(null);
+  const [rootData, setRootData] = React.useState(null)
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [isError, setIsError] = React.useState(false)
+
   const [personData, setPersonData] = React.useState({
     id: null,
     isAccepted: ""
-  });
-  const [open, setOpen] = React.useState(false);
+  })
+  const [open, setOpen] = React.useState(false)
 
   const fetchData = async () => {
-    const friendList = await getList();
-    setRootData(friendList); //only once
-  };
+    setIsLoading(true)
+    try {
+      const friendList = await getList()
+      setRootData(friendList) //only once
+      setIsLoading(false)
+    } catch (error) {
+      setIsError({ message: error })
+      setIsLoading(false)
+    }
+  }
 
   return (
     <FriendsContext.Provider
@@ -25,11 +35,13 @@ const FriendsContextProvider = ({ children }) => {
         personData,
         setPersonData,
         open,
-        setOpen
+        setOpen,
+        isLoading,
+        isError,
       }}
     >
       {children}
     </FriendsContext.Provider>
-  );
-};
-export default FriendsContextProvider;
+  )
+}
+export default FriendsContextProvider
