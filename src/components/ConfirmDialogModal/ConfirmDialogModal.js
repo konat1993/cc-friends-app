@@ -46,7 +46,7 @@ const ConfirmDialogModal = () => {
             >
                 Rootsly
             </DialogTitle>
-            <Divider />
+            {<Divider sx={{borderColor: personData.isAccepted ? 'transparent' : 'lightgray'}}/>}
             <DialogContent sx={{ pb: 1, px: personData.isAccepted ? 8 : 3 }}>
                 <DialogContentText
                     id="alert-dialog-description"
