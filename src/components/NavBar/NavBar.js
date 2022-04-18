@@ -58,7 +58,7 @@ const NavBar = () => {
             )
           })}
         </Stack>
-        <Box sx={{ flexGrow: 0 }}>
+        <Box sx={{ flexGrow: 0, mr: 1 }}>
           <IconButton sx={{ p: 0, mr: 1 }}>
             <Avatar
               src="https://minimaltoolkit.com/images/randomdata/male/3.jpg"
