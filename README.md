@@ -2,8 +2,9 @@
 
 ## Zadanie:
 Zadanie i jego rozwiązanie jest dostępne pod dwoma adresami:
-Netlify: [https://cc-friends-app.netlify.app/](https://cc-friends-app.netlify.app/)
-Codesandbox: [https://codesandbox.io/s/frosty-ptolemy-4gx0wo](https://codesandbox.io/s/frosty-ptolemy-4gx0wo)
+
+- Netlify: [https://cc-friends-app.netlify.app/](https://cc-friends-app.netlify.app/)
+- Codesandbox: [https://codesandbox.io/s/frosty-ptolemy-4gx0wo](https://codesandbox.io/s/frosty-ptolemy-4gx0wo)
 ___
 
 # Getting Started with Create React App
