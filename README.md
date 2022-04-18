@@ -4,7 +4,7 @@
 Zadanie i jego rozwiązanie jest dostępne pod dwoma adresami:
 
 - Netlify: [https://cc-friends-app.netlify.app/](https://cc-friends-app.netlify.app/)
-- Codesandbox: [https://codesandbox.io/s/frosty-ptolemy-4gx0wo](https://codesandbox.io/s/frosty-ptolemy-4gx0wo)
+- Codesandbox: [https://codesandbox.io/s/cc-friends-app-fj0sf5](https://codesandbox.io/s/cc-friends-app-fj0sf5)
 ___
 
 # Getting Started with Create React App
