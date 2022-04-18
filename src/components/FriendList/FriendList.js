@@ -10,8 +10,7 @@ const FriendList = ({ searchData }) => {
   const { rootData, fetchData, isLoading, isError } = React.useContext(FriendsContext);
   const { status, searchValue } = searchData;
 
-  const convertData = React.useMemo(
-    () => (data) => {
+  const convertData = React.useCallback((data) => {
       if (data) {
         if (searchValue || status !== "all") {
           const filteredData = data.filter(

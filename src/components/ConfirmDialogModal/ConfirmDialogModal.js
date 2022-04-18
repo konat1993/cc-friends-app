@@ -16,7 +16,7 @@ const ConfirmDialogModal = () => {
         FriendsContext
     )
 
-    const updateFriendList = (personData) => {
+    const updateFriendList = React.useCallback((personData) => {
         if (personData.isAccepted) {
             const updateStatus = updateList.acceptPersonUpdate(
                 rootData,
@@ -24,11 +24,16 @@ const ConfirmDialogModal = () => {
             )
             setRootData(updateStatus)
         } else {
-            const rejectInvitation = updateList.deletePerson(rootData, personData.id)
+            const rejectInvitation = updateList.deletePerson(
+                rootData,
+                personData.id
+            )
             setRootData(rejectInvitation)
         }
         setOpen(false)
-    }
+    },
+        [rootData, setOpen, setRootData]
+    )
 
     const handleCloseModal = () => {
         setOpen(false)
@@ -46,7 +51,13 @@ const ConfirmDialogModal = () => {
             >
                 Rootsly
             </DialogTitle>
-            {<Divider sx={{borderColor: personData.isAccepted ? 'transparent' : 'lightgray'}}/>}
+            {
+                <Divider
+                    sx={{
+                        borderColor: personData.isAccepted ? "transparent" : "lightgray"
+                    }}
+                />
+            }
             <DialogContent sx={{ pb: 1, px: personData.isAccepted ? 8 : 3 }}>
                 <DialogContentText
                     id="alert-dialog-description"
@@ -88,7 +99,7 @@ const ConfirmDialogModal = () => {
                 }}
             >
                 <Button
-                    name='Cancel Button'
+                    name="Cancel Button"
                     variant="text"
                     color="error"
                     onClick={handleCloseModal}
@@ -97,7 +108,7 @@ const ConfirmDialogModal = () => {
                     Cancel
                 </Button>
                 <Button
-                    name='Confirm Button'
+                    name="Confirm Button"
                     sx={{ fontSize: "0.9rem", py: 0.5, px: 1.5 }}
                     onClick={() => updateFriendList(personData)}
                     autoFocus

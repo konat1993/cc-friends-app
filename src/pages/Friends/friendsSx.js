@@ -9,7 +9,7 @@ const friendsSx = {
     },
     toggleStatusButtonGroup: {
         "& .MuiButtonBase-root ": {
-            minWidth: { xs: "70px", xsm: "100px" },
+            minWidth: { xs: "80px", xsm: "110px" },
             fontSize: { xs: "0.75rem", xsm: "0.875rem" },
             p: 0
         },
