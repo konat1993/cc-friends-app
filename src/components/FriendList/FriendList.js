@@ -1,42 +1,42 @@
-import React from "react";
-import Person from "../Person/Person";
-import ConfirmDialogModal from "../ConfirmDialogModal/ConfirmDialogModal";
-import { Container, Grid, Box, Typography, Stack, CircularProgress } from "@mui/material";
-import { filterByNameAndStatus } from "../../utils";
-import { FriendsContext } from "../../context/friendsContext";
-import { motion, AnimatePresence } from "framer-motion";
-
+import React from "react"
+import Person from "../Person/Person"
+import ConfirmDialogModal from "../ConfirmDialogModal/ConfirmDialogModal"
+import { Container, Grid, Box, Typography, Stack } from "@mui/material"
+import { filterByNameAndStatus } from "../../utils"
+import { FriendsContext } from "../../context/friendsContext"
+import { motion, AnimatePresence } from "framer-motion"
+import "./loader.css"
 const FriendList = ({ searchData }) => {
-  const { rootData, fetchData, isLoading, isError } = React.useContext(FriendsContext);
-  const { status, searchValue } = searchData;
+  const { rootData, fetchData, isLoading, isError } = React.useContext(FriendsContext)
+  const { status, searchValue } = searchData
 
   const convertData = React.useCallback((data) => {
-      if (data) {
-        if (searchValue || status !== "all") {
-          const filteredData = data.filter(
-            filterByNameAndStatus(searchValue, status)
-          );
-          return filteredData.length !== 0 ? filteredData : null;
-        } else {
-          return data.length !== 0 ? data : null;
-        }
+    if (data) {
+      if (searchValue || status !== "all") {
+        const filteredData = data.filter(
+          filterByNameAndStatus(searchValue, status)
+        )
+        return filteredData.length !== 0 ? filteredData : null
       } else {
-        return null;
+        return data.length !== 0 ? data : null
       }
-    },
+    } else {
+      return null
+    }
+  },
     [searchValue, status]
-  );
+  )
 
   React.useEffect(() => {
     if (!rootData) {
       //setTimeout just for ui purposes instead od server timing
       setTimeout(() => {
-        fetchData();
-      }, 1800);
+        fetchData()
+      }, 2200)
     }
     //only once
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
   if (isError) {
     return (
       <Stack alignItems="center" sx={{ width: "280px" }}>
@@ -44,15 +44,13 @@ const FriendList = ({ searchData }) => {
           {isError.message ? isError.message : "Ops! Something went wrong :("}
         </Typography>
       </Stack>
-    );
+    )
   }
   return (
     <Container fixed>
       <ConfirmDialogModal />
       {isLoading ? (
-        <Stack alignItems="center">
-          <CircularProgress sx={{ color: "darkgray" }} />
-        </Stack>
+        <Box className="loader" />
       ) : (
         <Grid
           container
@@ -78,7 +76,7 @@ const FriendList = ({ searchData }) => {
                   >
                     <Person filteredData={person} />
                   </Grid>
-                );
+                )
               })
             ) : (
               <Box
@@ -101,7 +99,7 @@ const FriendList = ({ searchData }) => {
         </Grid>
       )}
     </Container>
-  );
-};
+  )
+}
 
-export default FriendList;
+export default FriendList
