@@ -1,5 +1,5 @@
-import React from "react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import React from "react"
+import { Link as RouterLink, useLocation } from "react-router-dom"
 import {
   AppBar,
   Box,
@@ -11,18 +11,18 @@ import {
   Avatar,
   Stack,
   Link
-} from "@mui/material";
-import navBarSx from "./navBarSx";
+} from "@mui/material"
+import navBarSx from "./navBarSx"
 
 const paths = [
   { url: "/", pathText: "Home" },
   { url: "/friends", pathText: "Friends" }
-];
+]
 
 const NavBar = () => {
-  const location = useLocation();
+  const location = useLocation()
   return (
-    <AppBar position="sticky" sx={navBarSx.appBar} alt="Avatar of the logged in user">
+    <AppBar position="sticky" sx={navBarSx.appBar}>
       <Toolbar>
         <Typography
           variant="h6"
@@ -55,7 +55,7 @@ const NavBar = () => {
               >
                 {path.pathText}
               </Button>
-            );
+            )
           })}
         </Stack>
         <Box sx={{ flexGrow: 0 }}>
@@ -63,6 +63,7 @@ const NavBar = () => {
             <Avatar
               src="https://minimaltoolkit.com/images/randomdata/male/3.jpg"
               sx={navBarSx.avatar}
+              alt="Avatar of the logged in user"
             />
           </IconButton>
           <Typography
@@ -77,7 +78,7 @@ const NavBar = () => {
         </Box>
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
