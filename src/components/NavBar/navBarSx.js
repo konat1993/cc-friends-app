@@ -16,14 +16,18 @@ const navBarSx = {
     divider: {
         borderLeftWidth: "1.5px",
         borderColor: "#FFFFFFCC",
-        marginLeft: "10px"
+        ml: { xs: 1.5, xsm: 3 },
+        mr: { xs: 1.5, xsm: 3 }
     },
-    routeBtn: (path, i, location) => ({
+    tagLine: {
+        fontSize: { xs: "0.8rem", sm: "1rem", lg: "1.1rem" }
+    },
+    routeBtn: (path, i, lastIndex, location) => ({
         borderRadius: 0,
         py: 0,
-        ml: i === 0 ? { xs: "8px", sm: "12px", md: "16px" } : 0,
-        mr: { xs: "8px", sm: "16px" },
-        fontSize: { sm: "1rem", md: "1.25rem", lg: "1.5rem" },
+        ml: { xs: "8px", sm: "12px", md: "16px" },
+        mr: i === lastIndex ? 0 : { xs: "8px", sm: "12px" },
+        fontSize: { xs: "0.8rem", sm: "1rem", lg: "1.1rem" },
         borderTop: "3px solid transparent",
         borderBottom:
             path.url === location.pathname
@@ -31,14 +35,28 @@ const navBarSx = {
                 : "3px solid transparent",
         color: path.url === location.pathname ? "#3b5497" : "inherit",
         "&:hover": {
-            bgcolor: "transparent",
+            backgroundColor: "transparent",
             borderBottom: "3px solid #3b5497",
             color: "#3b5497"
         }
     }),
+    popover: { top: "8px", display: { xs: "block", md: "none" } },
+    listContainer: {
+        minWidth: { xsm: "150px" },
+        display: { xs: "block", md: "none" }
+    },
+    listItemBtn: {
+        "&.Mui-selected": {
+            backgroundColor: "deepOcean.main"
+        },
+        "&.Mui-selected .MuiTypography-root, &.Mui-selected .MuiSvgIcon-root": {
+            color: "secondary.main"
+        }
+    },
+    avatarBtn: { p: 0, mr: { xs: 0, xsm: 1 }, ml: { xs: 2, md: 0 } },
     avatar: {
-        width: { xs: "28px", sm: "40px" },
-        height: { xs: "28px", sm: "40px" }
+        width: { xs: "24px", xsm: "32px", sm: "40px" },
+        height: { xs: "24px", xsm: "32px", sm: "40px" }
     },
     name: {
         fontSize: { xs: "0.8rem", sm: "1rem" },

@@ -10,17 +10,41 @@ import {
   IconButton,
   Avatar,
   Stack,
-  Link
+  Link,
+  Popover,
+  List,
+  ListItemButton,
+  ListItemText,
+  ListItem,
+  ListItemIcon
 } from "@mui/material"
+import HomeIcon from "@mui/icons-material/Home"
+import HandshakeIcon from "@mui/icons-material/Handshake"
 import navBarSx from "./navBarSx"
 
 const paths = [
-  { url: "/", pathText: "Home" },
-  { url: "/friends", pathText: "Friends" }
+  { url: "/", pathText: "Home", Icon: HomeIcon },
+  {
+    url: "/friends",
+    pathText: "Friends",
+    Icon: HandshakeIcon
+  }
 ]
 
 const NavBar = () => {
   const location = useLocation()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const open = Boolean(anchorEl)
+  const id = open ? "simple-popover" : undefined
   return (
     <AppBar position="sticky" sx={navBarSx.appBar}>
       <Toolbar>
@@ -42,7 +66,13 @@ const NavBar = () => {
           flexWrap="nowrap"
           flexGrow={1}
         >
+          <Typography variant="h2" color="secondary" sx={navBarSx.tagLine}>
+            Explore your relationships
+          </Typography>
+        </Stack>
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
           {paths.map((path, i) => {
+            const lastIndex = paths.length - 1
             return (
               <Button
                 key={path.pathText}
@@ -51,15 +81,21 @@ const NavBar = () => {
                 to={path.url}
                 color="secondary"
                 disableRipple
-                sx={navBarSx.routeBtn(path, i, location)}
+                sx={navBarSx.routeBtn(path, i, lastIndex, location)}
               >
                 {path.pathText}
               </Button>
             )
           })}
-        </Stack>
-        <Box sx={{ flexGrow: 0, mr: 1 }}>
-          <IconButton sx={{ p: 0, mr: 1 }}>
+        </Box>
+        <Divider
+          orientation="vertical"
+          flexItem
+          sx={{ ...navBarSx.divider, display: { xs: "none", md: "block" } }}
+        />
+
+        <Box sx={{ flexGrow: 0, mr: { xs: 0, xsm: 1 } }}>
+          <IconButton onClick={handleClick} sx={navBarSx.avatarBtn}>
             <Avatar
               src="https://minimaltoolkit.com/images/randomdata/male/3.jpg"
               sx={navBarSx.avatar}
@@ -75,6 +111,47 @@ const NavBar = () => {
           >
             John Doe
           </Typography>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right"
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right"
+            }}
+            sx={navBarSx.popover}
+          >
+            <List
+              component="nav"
+              disablePadding
+              aria-label="main mailbox folders"
+              sx={navBarSx.listContainer}
+            >
+              {paths.map((path, i) => {
+                return (
+                  <ListItem key={path.pathText} disablePadding>
+                    <ListItemButton
+                      selected={path.url === location.pathname}
+                      onClick={handleClose}
+                      component={RouterLink}
+                      to={path.url}
+                      sx={navBarSx.listItemBtn}
+                    >
+                      <ListItemIcon>
+                        <path.Icon color="primary" />
+                      </ListItemIcon>
+                      <ListItemText primary={path.pathText} />
+                    </ListItemButton>
+                  </ListItem>
+                )
+              })}
+            </List>
+          </Popover>
         </Box>
       </Toolbar>
     </AppBar>

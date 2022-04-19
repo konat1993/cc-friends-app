@@ -4,8 +4,10 @@ const friendsSx = {
         borderColor: "pinky.main",
         width: "fit-content",
         px: 1,
+        pt: 4,
         pb: 0.4,
-        mb: 4
+        mb: 6,
+        fontSize: { xs: "5vw", xsm: "1.75rem" }
     },
     toggleStatusButtonGroup: {
         "& .MuiButtonBase-root ": {
@@ -14,18 +16,18 @@ const friendsSx = {
             p: 0
         },
         "& .MuiButtonBase-root:hover": {
-            bgcolor: "deepOcean.dark",
+            backgroundColor: "deepOcean.dark",
             color: "secondary.main"
         },
         "& .MuiButtonBase-root.Mui-selected:hover": {
-            bgcolor: "deepOcean.main",
+            backgroundColor: "deepOcean.main",
             cursor: "default"
         }
     },
     toggleStatusButton: {
         "&.Mui-selected": {
             color: "secondary.main",
-            bgcolor: "deepOcean.main"
+            backgroundColor: "deepOcean.main"
         },
         "&:hover .MuiTouchRipple-root": {
             display: "none"
