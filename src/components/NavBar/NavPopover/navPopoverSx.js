@@ -10,8 +10,11 @@ const navPopoverSx = {
         },
         "&.Mui-selected .MuiTypography-root, &.Mui-selected .MuiSvgIcon-root": {
             color: "secondary.main"
+        },
+        "&.Mui-selected:hover": {
+            backgroundColor: "deepOcean.main"
         }
-    },
+    }
 }
 
 export default navPopoverSx
