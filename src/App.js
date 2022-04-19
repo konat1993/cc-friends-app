@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
-import NavBar from "./components/NavBar/NavBar"
+import { NavBar } from "./components/NavBar"
 import FriendsContextProvider from "./context/friendsContext"
 import Friends from "./pages/Friends"
 import Home from "./pages/Home"
