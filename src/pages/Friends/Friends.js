@@ -9,6 +9,7 @@ import {
     ToggleButtonGroup,
     Typography
 } from "@mui/material"
+import SearchIcon from "@mui/icons-material/Search";
 import SearchInput from "../../components/SearchInput"
 import FriendList from "../../components/FriendList/FriendList"
 import friendsSx from "./friendsSx"
@@ -51,10 +52,10 @@ const Friends = () => {
                             color="deepOcean"
                             variant="contained"
                             type="submit"
+                            startIcon={<SearchIcon />}
                             sx={searchInputSx.submitBtn}
-                            onClick={() => searchInputRef.current.focus()}
                         >
-                            Search
+                            <Box component="span">Search</Box>
                         </Button>
                     </Box>
                 </SearchInput>

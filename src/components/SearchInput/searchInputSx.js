@@ -28,14 +28,21 @@ const searchInputSx = {
         position: "absolute",
         top: 0,
         right: 0,
-        minWidth: { xs: "85px", sm: "100px" },
+        minWidth: { xs: "50px", sm: "100px" },
         height: "100%",
         borderRadius: "100px",
         borderLeft: "1px solid #E9E9E9",
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
         fontSize: { xs: "0.9rem", sm: "1rem" },
-        letterSpacing: "0.6px"
+        letterSpacing: "0.6px",
+        "& .MuiButton-startIcon": {
+            display: { xs: "inherit", sm: "inherit" },
+            ml: { xs: 0.5, sm: 0 }
+        },
+        "& .MuiBox-root": {
+            display: { xs: "none", sm: "inherit" }
+        }
     }
 }
 
